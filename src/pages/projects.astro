@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    title: 'Syria Timeline Project',
+    status: 'In Development',
+    icon: '◈',
+    description:
+      'An interactive digital timeline documenting key events in the Syrian conflict and diaspora experience from 2011 to the present. Drawing on Arabic-language news archives, personal testimonies, and scholarly sources, the project visualizes the temporal and geographic dimensions of displacement, making complex historical data accessible to both scholarly and public audiences.',
+    tags: ['Digital History', 'Data Visualization', 'Arabic Sources', 'Diaspora', 'Timeline'],
+  },
+  {
+    title: 'Language and Identity in Diaspora',
+    status: 'Research Phase',
+    icon: '◉',
+    description:
+      'A corpus-based study of language use among Syrian German communities in Berlin, examining how multilingual speakers navigate identity through language choice, code-switching, and narrative construction. The project combines sociolinguistic fieldwork with computational text analysis to identify patterns invisible to traditional qualitative methods.',
+    tags: ['Corpus Linguistics', 'Sociolinguistics', 'Berlin', 'Arabic–German', 'Identity'],
+  },
+  {
+    title: 'Arabic Translation History',
+    status: 'Prototype',
+    icon: '◇',
+    description:
+      'A digital mapping project tracing the history of Arabic literary translation into German from the nineteenth century to the present. The project visualizes translation networks — identifying which authors, texts, and genres traveled between languages and in which historical periods — with a particular focus on how translation practices reflect political and cultural relations between Arab and German contexts.',
+    tags: ['Translation Studies', 'Literary History', 'Network Analysis', 'German–Arabic', 'Digital Mapping'],
+  },
+  {
+    title: 'Digital Archive Prototype',
+    status: 'Prototype',
+    icon: '▣',
+    description:
+      'A prototype digital archive for Arabic-language periodicals from the early twentieth century, developed as part of a library digitization project. The archive implements metadata standards for Arabic-script materials, explores multilingual search and navigation, and addresses the challenges of representing right-to-left scripts in digital archival systems.',
+    tags: ['Digital Archiving', 'Metadata', 'Arabic Script', 'TEI', 'Open Access'],
+  },
+  {
+    title: 'Multilingual Identity Mapping',
+    status: 'Conceptual',
+    icon: '◯',
+    description:
+      'A conceptual project exploring how geographic information systems and participatory mapping methods can visualize the subjective linguistic landscapes of multilingual individuals. Participants annotate maps of their daily environments with the languages they use, encounter, or feel associated with particular spaces — producing layered, personal maps of urban multilingualism.',
+    tags: ['GIS', 'Participatory Research', 'Linguistic Landscape', 'Urban Studies', 'Visualization'],
+  },
+];
+---
+
+<BaseLayout
+  title="Digital Humanities Projects – Majdolen Haidar"
+  description="Digital Humanities projects by Majdolen Haidar: Syria timeline, language and identity corpus study, Arabic translation history mapping, digital archive prototype, and multilingual identity mapping."
+>
+  <div class="container">
+    <header class="page-header">
+      <p class="page-header__eyebrow">Digital Humanities</p>
+      <h1 class="page-header__title">DH Projects</h1>
+      <p class="page-header__lead">
+        Prototype projects at the intersection of computation and culture — applying
+        digital methods to questions of language, memory, translation, and identity.
+      </p>
+    </header>
+
+    <div class="projects-grid">
+      {projects.map((project) => (
+        <article class="project-card">
+          <div class="project-card__image" aria-label={`${project.title} — visual placeholder`}>
+            <div class="project-card__image-overlay">
+              <span style="font-size: 3rem; color: var(--color-gray-300);">{project.icon}</span>
+              <span class="project-card__image-label">Project Visual</span>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <p class="project-card__status">{project.status}</p>
+            <h2 class="project-card__title">{project.title}</h2>
+            <p class="project-card__description">{project.description}</p>
+            <div class="project-card__tags">
+              {project.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
